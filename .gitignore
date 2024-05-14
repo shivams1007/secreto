@@ -1,58 +1,70 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
 *~
 *.sw[mnpcod]
-*.log
-*.lock
+.tmp
 *.tmp
 *.tmp.*
-log.txt
-*.sublime-project
-*.sublime-workspace
-*.tgz
-
-.idea/
-.vscode/
-.sass-cache/
-.versions/
-coverage/
-collection/
-dist/
-dist-transpiled/
-node_modules/
-tmp/
-temp/
-core/theme-builder/
-core/test-components/
-core/css/
+UserInterfaceState.xcuserstate
 $RECYCLE.BIN/
 
+*.log
+log.txt
+
+
+/.sourcemaps
+/.versions
+/coverage
+
+# Ionic
+/.ionic
+/www
+/platforms
+/plugins
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+
+# Miscellaneous
+/.angular
+/.angular/cache
+.sass-cache/
+/.nx
+/.nx/cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
 .DS_Store
 Thumbs.db
-UserInterfaceState.xcuserstate
-.env
-
-.package.tmp.json
-
-src/themes/version.scss
-scripts/e2e/webpackEntryPoints.json
-scripts/build/e2e-generated-tsconfig.json
-*.css.ts
-
-stats.json
-
-# ground truths generated outside of docker should not be committed to the repo
-core/**/*-snapshots/*
-
-# new ground truths should only be generated inside of docker which will result in -linux.png screenshots
-!core/**/*-snapshots/*-linux.png
-
-# these files are going to be different per-developer environment so do not add them to the repo
-core/docker-display.txt
-core/docker-display-volume.txt
-
-# angular
-packages/angular/css/
-packages/angular/test/build/
-.angular/
-
-
-.npmrc
