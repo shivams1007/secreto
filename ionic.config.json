@@ -1,0 +1,7 @@
+{
+  "name": "secreto",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
