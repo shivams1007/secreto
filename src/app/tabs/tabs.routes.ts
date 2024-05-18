@@ -15,6 +15,14 @@ export const routes: Routes = [
         path: 'entries',
         loadChildren: () => import('../entries/entries.routes').then((m) => m.routes),
       },
+      {
+        path: 'settings',
+        loadChildren: () => import('../settings/settings.routes').then((m) => m.routes),
+      },
+      {
+        path: 'password',
+        loadChildren: () => import('../password/password.routes').then((m) => m.routes),
+      }
     ],
   },
   {

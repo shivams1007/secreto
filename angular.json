@@ -12,6 +12,9 @@
         },
         "@schematics/angular:component": {
           "skipTests": true
+        },
+        "@schematics/angular:page": {
+          "skipTests": true
         }
       },
       "root": "",

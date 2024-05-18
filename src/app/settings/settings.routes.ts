@@ -3,6 +3,6 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('../entries/entries.page').then( m => m.EntriesPage)
+    loadComponent: () => import('../settings/settings.page').then( m => m.SettingsPage)
   },
 ];
