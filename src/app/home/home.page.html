@@ -1,1 +1,46 @@
-Home
+<ion-content [fullscreen]="true" class="ion-padding">
+    <div class="flex flex-col gap-4">
+        <div class="p-4 -m-5 flex flex-col justify-center items-center gap-3  bg-primary">
+            <img src="assets/icon/logo.png" alt="Logo" class="logo mt-4" [height]="80" [width]="80" />
+            <h1 class="text-3xl font-bold text-secondary">Secreto</h1>
+            <div class="flex items-center justify-between w-full">
+                <div class="text-secondary">Version: 0.0.1</div>
+                <div>
+                    <ion-button size="small" class="rounded-full" id="keypad-type">
+                        <ion-icon name="keypad"></ion-icon>
+                    </ion-button>
+                    <ion-popover trigger="keypad-type" triggerAction="click" [dismissOnSelect]="true">
+                        <ng-template>
+                            <ion-list>
+                                <ion-item button (click)="changeKeypadType('number')">
+                                    <ion-label>Numeric</ion-label>
+                                </ion-item>
+                                <ion-item button (click)="changeKeypadType('text')">
+                                    <ion-label>Alphanumeric</ion-label>
+                                </ion-item>
+                            </ion-list>
+                        </ng-template>
+                    </ion-popover>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col gap-4 mt-5 font-semibold">
+            <p>Please enter a password to encrypt your stored passwords.</p>
+            <p>Remember, if the master password is lost, stored passwords cannot be recovered. Since
+                the app is not able
+                to access the internet, you need to take care of regularly backing up the database manually.</p>
+        </div>
+        <div class="flex flex-col gap-6">
+            <app-input [type]="keypadType" [placeholder]="'Password'" [passwordToggle]="true">
+            </app-input>
+            <app-input [type]="keypadType" [placeholder]="'Confirm Password'" [passwordToggle]="true">
+            </app-input>
+        </div>
+        <div class="mt-4 text-center">
+            <app-button [color]="'secondary'">Create Master Password</app-button>
+        </div>
+        <div class="text-center">
+            <a class="text-primary font-bold">Restore</a>
+        </div>
+    </div>
+</ion-content>

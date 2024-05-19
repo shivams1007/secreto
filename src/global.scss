@@ -41,7 +41,7 @@
 @tailwind utilities;
 
 :root {
-    --ion-color-primary: #032538;
+    --ion-color-primary: #27546e;
     --ion-color-primary-rgb: 0, 102, 0;
     --ion-color-primary-contrast: #ffffff;
     --ion-color-primary-contrast-rgb: 255, 255, 255;
@@ -88,4 +88,8 @@
 
 .neumorphism-shadow {
     box-shadow: -4px -4px 10px rgb(255, 255, 255), 4px 4px 10px rgba(0, 0, 0, 0.219);
+}
+
+ion-content::part(background) {
+    @apply bg-secondary;
 }
