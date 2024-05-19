@@ -24,23 +24,36 @@
                 </div>
             </div>
         </div>
+
         <div class="flex flex-col gap-4 mt-5 font-semibold">
+            @if(isCreate){
             <p>Please enter a password to encrypt your stored passwords.</p>
             <p>Remember, if the master password is lost, stored passwords cannot be recovered. Since
                 the app is not able
                 to access the internet, you need to take care of regularly backing up the database manually.</p>
+            }
+            @else{
+            <p>Please enter your master password to access your stored passwords.</p>
+            }
         </div>
         <div class="flex flex-col gap-6">
             <app-input [type]="keypadType" [placeholder]="'Password'" [passwordToggle]="true">
             </app-input>
-            <app-input [type]="keypadType" [placeholder]="'Confirm Password'" [passwordToggle]="true">
+            <app-input [type]="keypadType" *ngIf="isCreate" [placeholder]="'Confirm Password'" [passwordToggle]="true">
             </app-input>
         </div>
         <div class="mt-4 text-center">
-            <app-button [color]="'secondary'">Create Master Password</app-button>
+            <app-button [color]="'secondary'" *ngIf="isCreate">Create Master Password</app-button>
+
+            <app-button [color]="'secondary'" *ngIf="!isCreate">Confirm</app-button>
         </div>
         <div class="text-center">
             <a class="text-primary font-bold">Restore</a>
+        </div>
+        <div class="text-center absolute bottom-10 w-full pr-8" *ngIf="!isCreate">
+            <app-button [color]="'secondary'">
+                <ion-icon name="finger-print" class="text-4xl"></ion-icon>
+            </app-button>
         </div>
     </div>
 </ion-content>
