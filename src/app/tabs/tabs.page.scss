@@ -1,1 +1,5 @@
-
+:host ::ng-deep {
+    .tab-selected div {
+        box-shadow: .2em .2em .4em #99b5d2, -.2em -.2em .4em #fff;
+    }
+}

@@ -1,0 +1,14 @@
+<ion-header [translucent]="true" class="nm-flat-gray-200-lg">
+  <ion-toolbar>
+    <div class="flex px-2">
+      @if(back){
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      } @else{
+      <img [src]="'assets/icon/logo.png'" alt="Logo" class="logo" [height]="40" [width]="40" />
+      }
+      <ion-title class="font-bold text-primary">{{title}}</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>

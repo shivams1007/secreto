@@ -34,8 +34,58 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+// @import '@ionic/angular/css/palettes/dark.system.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --ion-color-primary: #032538;
+    --ion-color-primary-rgb: 0, 102, 0;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255, 255, 255;
+    --ion-color-primary-tint: #133951;
+    --ion-color-primary-shade: #27546e;
+    // secondary #edf2f7
+    --ion-color-secondary: #edf2f7;
+    --ion-color-secondary-rgb: 237, 242, 247;
+    --ion-color-secondary-contrast: #000000;
+    --ion-color-secondary-contrast-rgb: 0, 0, 0;
+    --ion-color-secondary-tint: #f0f4f9;
+    --ion-color-secondary-shade: #d7e1ec;
+}
+
+.nm-inset-gray-200 {
+    background: #edf2f7;
+    box-shadow: inset .2em .2em .4em #99b5d2, inset -.2em -.2em .4em #fff;
+}
+
+.nm-flat-gray-200 {
+    background: #edf2f7;
+    box-shadow: .2em .2em .4em #99b5d2, -.2em -.2em .4em #fff;
+}
+
+.nm-convex-gray-200-xs {
+    background: linear-gradient(145deg, #fff, #bbcee1);
+    box-shadow: .05em .05em .1em #99b5d2, -.05em -.05em .1em #fff;
+}
+
+.nm-concave-gray-200-sm {
+    background: linear-gradient(145deg, #bbcee1, #fff);
+    box-shadow: .1em .1em .2em #99b5d2, -.1em -.1em .2em #fff;
+}
+
+.nm-inset-gray-200-sm {
+    background: #edf2f7;
+    box-shadow: inset .1em .1em .2em #99b5d2, inset -.1em -.1em .2em #fff;
+}
+
+.nm-flat-gray-200-lg {
+    background: #edf2f7;
+    box-shadow: .4em .4em .8em #99b5d2, -.4em -.4em .8em #99b5d2;
+}
+
+.neumorphism-shadow {
+    box-shadow: -4px -4px 10px rgb(255, 255, 255), 4px 4px 10px rgba(0, 0, 0, 0.219);
+}
