@@ -16,7 +16,7 @@ import { NgIf } from '@angular/common';
 export class HomePage {
   public environmentInjector = inject(EnvironmentInjector);
   keypadType: string = 'text';
-  isCreate: boolean = false;
+  isCreate: boolean = true;
   constructor() {
     addIcons({ keypad, fingerPrint });
   }

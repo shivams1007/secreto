@@ -56,9 +56,8 @@
     --ion-color-secondary-shade: #d7e1ec;
 }
 
-.nm-inset-gray-200 {
-    background: #edf2f7;
-    box-shadow: inset .2em .2em .4em #99b5d2, inset -.2em -.2em .4em #fff;
+.nm-inset {
+    box-shadow: inset -4px -4px 10px rgb(255, 255, 255), inset 4px 4px 10px rgba(0, 0, 0, 0.219);
 }
 
 .nm-flat-gray-200 {
@@ -86,7 +85,7 @@
     box-shadow: .4em .4em .8em #99b5d2, -.4em -.4em .8em #99b5d2;
 }
 
-.neumorphism-shadow {
+.nm-shadow {
     box-shadow: -4px -4px 10px rgb(255, 255, 255), 4px 4px 10px rgba(0, 0, 0, 0.219);
 }
 

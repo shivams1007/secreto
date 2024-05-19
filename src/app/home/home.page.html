@@ -47,11 +47,11 @@
 
             <app-button [color]="'secondary'" *ngIf="!isCreate">Confirm</app-button>
         </div>
-        <div class="text-center">
+        <div class="text-center mt-4">
             <a class="text-primary font-bold">Restore</a>
         </div>
         <div class="text-center absolute bottom-10 w-full pr-8" *ngIf="!isCreate">
-            <app-button [color]="'secondary'">
+            <app-button [color]="'secondary'" [type]="'icon'">
                 <ion-icon name="finger-print" class="text-4xl"></ion-icon>
             </app-button>
         </div>
