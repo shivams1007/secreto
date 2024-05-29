@@ -43,14 +43,14 @@
             </app-input>
         </div>
         <div class="mt-4 text-center">
-            <app-button [color]="'secondary'" *ngIf="isCreate">Create Master Password</app-button>
+            <app-button [color]="'secondary'" *ngIf="isCreate" (click)="toggle()">Create Master Password</app-button>
 
-            <app-button [color]="'secondary'" *ngIf="!isCreate">Confirm</app-button>
+            <app-button [color]="'secondary'" *ngIf="!isCreate" (click)="toggle()">Confirm</app-button>
         </div>
         <div class="text-center mt-4">
             <a class="text-primary font-bold">Restore</a>
         </div>
-        <div class="text-center absolute bottom-10 w-full pr-8" *ngIf="!isCreate">
+        <div class="text-center w-full mt-8" *ngIf="!isCreate">
             <app-button [color]="'secondary'" [type]="'icon'">
                 <ion-icon name="finger-print" class="text-4xl"></ion-icon>
             </app-button>

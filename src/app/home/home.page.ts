@@ -1,9 +1,9 @@
 import { Component, EnvironmentInjector, inject } from '@angular/core';
-import { IonIcon, IonLabel, IonContent, IonButton, IonPopover, IonItem, IonList, IonInput, IonInputPasswordToggle } from '@ionic/angular/standalone';
+import { IonIcon, IonLabel, IonContent, IonButton, IonPopover, IonItem, IonList, IonInput } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { keypad, fingerPrint } from 'ionicons/icons';
-import { InputComponent } from '../shared/component/input/input.component';
-import { ButtonComponent } from '../shared/component/button/button.component';
+import { InputComponent } from '../shared/components/input/input.component';
+import { ButtonComponent } from '../shared/components/button/button.component';
 import { NgIf } from '@angular/common';
 
 @Component({
@@ -16,12 +16,16 @@ import { NgIf } from '@angular/common';
 export class HomePage {
   public environmentInjector = inject(EnvironmentInjector);
   keypadType: string = 'text';
-  isCreate: boolean = true;
+  isCreate: boolean = false;
   constructor() {
     addIcons({ keypad, fingerPrint });
   }
 
   changeKeypadType(type: string) {
     this.keypadType = type;
+  }
+
+  toggle() {
+    this.isCreate = !this.isCreate;
   }
 }
