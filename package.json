@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "^17.0.2",
     "@angular/router": "^17.0.2",
     "@aparajita/capacitor-biometric-auth": "^8.0.0",
+    "@capacitor-community/sqlite": "^5.7.3-3",
     "@capacitor/android": "6.0.0",
     "@capacitor/app": "6.0.0",
     "@capacitor/core": "6.0.0",

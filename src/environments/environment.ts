@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   version: '1.0.0',
+  DB_VERION: 1,
 };
 
 /*

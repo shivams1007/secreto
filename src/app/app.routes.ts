@@ -8,10 +8,10 @@ export const routes: Routes = [
   },
   {
     path: 'home',
-    loadComponent: () => import('./home/home.page').then(m => m.HomePage)
+    loadComponent: () => import('./modules/home/home.page').then(m => m.HomePage)
   },
   {
     path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.routes').then((m) => m.routes),
+    loadChildren: () => import('./modules/tabs/tabs.routes').then((m) => m.routes),
   },
 ];
