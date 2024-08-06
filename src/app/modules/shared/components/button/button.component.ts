@@ -18,6 +18,8 @@ export class ButtonComponent implements OnInit {
   @Input() disabled: boolean = false;
   @Input() icon: string = '';
   @Input() text: string = '';
+  @Input() class: string = '';
+
   constructor() { }
 
   ngOnInit() { }

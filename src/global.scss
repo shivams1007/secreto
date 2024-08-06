@@ -56,33 +56,25 @@
     --ion-color-secondary-shade: #d7e1ec;
 }
 
-.nm-inset {
-    box-shadow: inset -4px -4px 10px rgb(255, 255, 255), inset 4px 4px 10px rgba(0, 0, 0, 0.219);
-}
-
-.nm-flat-gray-200 {
-    background: #edf2f7;
-    box-shadow: .2em .2em .4em #99b5d2, -.2em -.2em .4em #fff;
-}
-
-.nm-convex-gray-200-xs {
+.nm-convex {
     background: linear-gradient(145deg, #fff, #bbcee1);
     box-shadow: .05em .05em .1em #99b5d2, -.05em -.05em .1em #fff;
 }
 
-.nm-concave-gray-200-sm {
+.nm-concave {
     background: linear-gradient(145deg, #bbcee1, #fff);
     box-shadow: .1em .1em .2em #99b5d2, -.1em -.1em .2em #fff;
 }
 
-.nm-inset-gray-200-sm {
+.nm-inset {
     background: #edf2f7;
     box-shadow: inset .1em .1em .2em #99b5d2, inset -.1em -.1em .2em #fff;
 }
 
-.nm-flat-gray-200-lg {
+.nm-flat {
     background: #edf2f7;
     box-shadow: .4em .4em .8em #99b5d2, -.4em -.4em .8em #99b5d2;
+    // box-shadow: .2em .2em .4em #99b5d2, -.2em -.2em .4em #fff;
 }
 
 .nm-shadow {
@@ -91,4 +83,13 @@
 
 ion-content::part(background) {
     @apply bg-secondary;
+}
+
+.native-input.sc-ion-input-md {
+    @apply px-4
+}
+
+.has-focus.sc-ion-input-md-h .input-highlight.sc-ion-input-md {
+    transform: scale(0);
+    -webkit-transform: scale(0);
 }

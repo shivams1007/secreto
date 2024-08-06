@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  version: '1.0.0',
+  APP_VERION: '0.0.1',
+  DB_NAME: 'SecretoDB',
   DB_VERION: 1,
 };
 

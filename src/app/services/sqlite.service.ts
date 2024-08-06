@@ -6,7 +6,9 @@ import {
 } from '@capacitor-community/sqlite';
 import { environment } from 'src/environments/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 
 export class SQLiteService {
   sqliteConnection!: SQLiteConnection;
@@ -14,6 +16,7 @@ export class SQLiteService {
   platform!: string;
   sqlitePlugin!: CapacitorSQLitePlugin;
   native: boolean = false;
+  private db!: SQLiteDBConnection;
   constructor() {
   }
   /**
@@ -37,17 +40,16 @@ export class SQLiteService {
     }
   }
 
-  async openDatabase(dbName: string, encrypted: boolean, mode: string, version: number, readonly: boolean): Promise<SQLiteDBConnection> {
-    let db: SQLiteDBConnection;
+  async openDatabase(encrypted: boolean, mode: string, version: number, readonly: boolean): Promise<SQLiteDBConnection> {
     const retCC = (await this.sqliteConnection.checkConnectionsConsistency()).result;
-    let isConn = (await this.sqliteConnection.isConnection(dbName, readonly)).result;
+    let isConn = (await this.sqliteConnection.isConnection(environment.DB_NAME, readonly)).result;
     if (retCC && isConn) {
-      db = await this.sqliteConnection.retrieveConnection(dbName, readonly);
+      this.db = await this.sqliteConnection.retrieveConnection(environment.DB_NAME, readonly);
     } else {
-      db = await this.sqliteConnection.createConnection(dbName, encrypted, mode, version, readonly);
+      this.db = await this.sqliteConnection.createConnection(environment.DB_NAME, encrypted, mode, version, readonly);
     }
-    await db.open();
-    return db;
+    await this.db.open();
+    return this.db;
   }
 
   async retrieveConnection(dbName: string, readonly: boolean): Promise<SQLiteDBConnection> {
@@ -156,7 +158,7 @@ export class SQLiteService {
       const dbName = dbList[idx].split("SQLite.db")[0];
       const isEncrypt = (await this.isDatabaseEncrypted(dbName)).result!;
       if (isEncrypt) {
-        const db = await this.openDatabase(dbName, true, "secret", environment.DB_VERION, false);
+        const db = await this.openDatabase(true, "secret", environment.DB_VERION, false);
         const jsonDB = (await db.exportToJson("full")).export!;
         jsonDB.overwrite = true;
         jsonDB.encrypted = false;

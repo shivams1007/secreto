@@ -5,7 +5,7 @@
             <h1 class="text-3xl font-bold text-secondary">Secreto</h1>
             <div class="flex items-center justify-between w-full">
                 <div class="text-secondary">Version: 0.0.1</div>
-                <div>
+                <!-- <div>
                     <ion-button size="small" class="rounded-full" id="keypad-type">
                         <ion-icon name="keypad"></ion-icon>
                     </ion-button>
@@ -21,12 +21,11 @@
                             </ion-list>
                         </ng-template>
                     </ion-popover>
-                </div>
+                </div> -->
             </div>
         </div>
-
         <div class="flex flex-col gap-4 mt-5 font-semibold">
-            @if(isCreate){
+            @if(!isPwdCreated){
             <p>Please enter a password to encrypt your stored passwords.</p>
             <p>Remember, if the master password is lost, stored passwords cannot be recovered. Since
                 the app is not able
@@ -36,21 +35,26 @@
             <p>Please enter your master password to access your stored passwords.</p>
             }
         </div>
-        <div class="flex flex-col gap-6">
-            <app-input [type]="keypadType" [placeholder]="'Password'" [passwordToggle]="true">
-            </app-input>
-            <app-input [type]="keypadType" *ngIf="isCreate" [placeholder]="'Confirm Password'" [passwordToggle]="true">
-            </app-input>
-        </div>
+        <form class="flex flex-col gap-6" [formGroup]="passwordForm">
+            <ion-input [type]="'password'" [placeholder]="'Password'" shape="round"
+                class="appearance-none rounded-full nm-inset" [formControlName]="'password'">
+                <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+            </ion-input>
+            <ion-input [type]="'password'" *ngIf="!isPwdCreated" [placeholder]="'Confirm Password'" shape="round"
+                class="appearance-none rounded-full nm-inset" [formControlName]="'confirm_password'">
+                <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+            </ion-input>
+        </form>
         <div class="mt-4 text-center">
-            <app-button [color]="'secondary'" *ngIf="isCreate" (click)="toggle()">Create Master Password</app-button>
+            <app-button [color]="'secondary'" *ngIf="!isPwdCreated" (click)="createMasterPassword()">Create Master
+                Password</app-button>
 
-            <app-button [color]="'secondary'" *ngIf="!isCreate" (click)="toggle()">Confirm</app-button>
+            <app-button [color]="'secondary'" *ngIf="isPwdCreated" (click)="confirmPassword()">Confirm</app-button>
         </div>
         <div class="text-center mt-4">
             <a class="text-primary font-bold">Restore</a>
         </div>
-        <div class="text-center w-full mt-8" *ngIf="!isCreate">
+        <div class="text-center w-full mt-8" *ngIf="isPwdCreated">
             <app-button [color]="'secondary'" [type]="'icon'">
                 <ion-icon name="finger-print" class="text-4xl"></ion-icon>
             </app-button>

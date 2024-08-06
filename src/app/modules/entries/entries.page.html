@@ -1,5 +1,98 @@
 <app-header [title]="'Entries'"></app-header>
 
 <ion-content [fullscreen]="true">
+    <div class="p-2">
+        <div class="flex items-center gap-2">
+            <ion-searchbar animated="true" placeholder="Search" class="appearance-none"></ion-searchbar>
+            <ion-icon name="filter" class="text-3xl text-primary" (click)="presentActionSheet()"></ion-icon>
+            <ion-icon name="grid" *ngIf="isGridView" class="text-3xl text-primary" (click)="toggleView()"></ion-icon>
+            <ion-icon name="list" *ngIf="!isGridView" class="text-3xl text-primary" (click)="toggleView()"></ion-icon>
+        </div>
+        <div>
+            <div *ngIf="isGridView">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size="6">
+                            <div
+                                class="nm-flat w-full h-16 rounded-xl p-2 flex flex-col items-center justify-center text-primary">
+                                <div class=" font-semibold">All Categories</div>
+                                <div class="text-sm">2 entries</div>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+            <div *ngIf="!isGridView">
+                <div class="p-2">
+                    <select
+                        class="nm-concave appearance-none border-none w-full px-4 py-2 rounded-full text-primary font-semibold focus-visible:outline-none">
+                        <option value="">All Categories</option>
+                        <option value="dogs">Dogs</option>
+                        <option value="cats">Cats</option>
+                    </select>
+                </div>
+                <div class="text-primary text-center text-sm">
+                    2 entries
+                </div>
+                <div class="flex flex-col gap-2 ">
+                    <div class="text-primary px-2 font-semibold">A</div>
+                    <div class="flex p-2 gap-4 items-center nm-flat rounded-xl w-5/6">
+                        <div class="">
+                            <img src="https://via.placeholder.com/150" alt="placeholder" class="rounded-full h-10 w-10">
+                        </div>
+                        <div class="text-primary">
+                            <div class="font-semibold">Adele Vance</div>
+                            <div class="text-sm">Shivam</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+        <ion-fab-button (click)="isModalOpen = true">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+    <ion-modal [isOpen]="isModalOpen">
+        <ng-template>
+            <ion-header class="nm-flat">
+                <ion-toolbar>
+                    <ion-title class="text-primary font-bold">Add Entry</ion-title>
+                    <ion-buttons slot="end">
+                        <ion-button (click)="isModalOpen = false" class="text-primary">
+                            <ion-icon slot="icon-only" name="close"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content class="ion-padding">
+                <div class="bg-secondary">
+                    <form [formGroup]="entryFrom" class="flex items-center gap-6 flex-col mt-4">
+                        <ion-input [type]="'text'" [placeholder]="'Title'" shape="round"
+                            class="appearance-none rounded-full nm-inset" [formControlName]="'title'">
+                        </ion-input>
+                        <ion-input [type]="'text'" [placeholder]="'Username'" shape="round"
+                            class="appearance-none rounded-full nm-inset" [formControlName]="'username'">
+                        </ion-input>
+                        <ion-input [type]="'password'" [placeholder]="'Password'" shape="round"
+                            class="appearance-none rounded-full nm-inset" [formControlName]="'password'">
+                            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+                        </ion-input>
+                        <ion-input [type]="'text'" [placeholder]="'Website'" shape="round"
+                            class="appearance-none rounded-full nm-inset" [formControlName]="'url'">
+                        </ion-input>
+                        <ion-input [type]="'text'" [placeholder]="'Description'" shape="round"
+                            class="appearance-none rounded-full nm-inset" [formControlName]="'desc'">
+                        </ion-input>
+                        <app-button [color]="'primary'" (click)="addEntry()">
+                            <ion-icon slot="icon-only" name="save"></ion-icon>
+                            Save
+                        </app-button>
+                    </form>
+                </div>
+            </ion-content>
+        </ng-template>
+    </ion-modal>
 
 </ion-content>

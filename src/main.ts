@@ -17,6 +17,7 @@ bootstrapApplication(AppComponent, {
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideIonicAngular(),
     provideRouter(routes),
+    InitializeAppService,
     {
       provide: APP_INITIALIZER,
       useFactory: initializeFactory,

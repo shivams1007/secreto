@@ -1,0 +1,11 @@
+.nm-inset {
+    background: #edf2f7;
+    box-shadow: inset .1em .1em .2em #99b5d2, inset -.1em -.1em .2em #fff;
+}
+
+:host ::ng-deep {
+    .searchbar-input-container .searchbar-input {
+        @apply nm-inset;
+        @apply rounded-full;
+    }
+}
